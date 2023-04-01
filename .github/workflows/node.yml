@@ -6,15 +6,21 @@ on:
     branches: [master]
 jobs:
   build:
+    env:
+      CI: true # set CI to true in env var so test script won't run in watch mode
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x] # run the steps below in both latest node 14 and 16 versions
     runs-on: ubuntu-latest
     steps:
       - name: Fetch repository for following build steps
         uses: actions/checkout@v3
 
-      - name: Use Node.js version 16
+      - name: Use Node.js version ${{matrix.node-version}}
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: ${{matrix.node-version}} # ref matrix node-version above
 
       - run: npm install
       - run: npm run build --prefix client
+      - run: npm test
