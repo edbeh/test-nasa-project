@@ -11,8 +11,8 @@ jobs:
       MONGODB_URL: mongodb://localhost/nasa # this will be used by action supercharge/mongodb-github-action@1.6.0 below
       CLIENT_ID: MOCK_CLIENT_ID
       CLIENT_SECRET: MOCK_CLIENT_SECRET
-      COOKIE_KEY_1: MOCK_KEY_1
-      COOKIE_KEY_2: MOCK_KEY_2
+      #COOKIE_KEY_1: MOCK_KEY_1
+      #COOKIE_KEY_2: MOCK_KEY_2
     strategy:
       matrix:
         node-version: [14.x, 16.x] # run the steps below in both latest node 14 and 16 versions
