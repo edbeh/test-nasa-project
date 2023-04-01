@@ -1,11 +1,13 @@
 const request = require("supertest");
 
 const app = require("../app");
+const { helpers: planetHelpers } = require("../services/planets.services");
 const { connectDb, disconnectDb } = require("../configs/db.config");
 
 describe("Launches API", () => {
   beforeAll(async () => {
     await connectDb();
+    await planetHelpers.loadPlanets();
   });
 
   afterAll(async () => {

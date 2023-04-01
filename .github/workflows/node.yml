@@ -8,7 +8,7 @@ jobs:
   build:
     env:
       CI: true # set CI to true in env var so test script won't run in watch mode
-      MONGODB_URL: mongodb://localhost/nasa
+      MONGODB_URL: mongodb://localhost/nasa # this will be used by action supercharge/mongodb-github-action@1.6.0 below
       CLIENT_ID: MOCK_CLIENT_ID
       CLIENT_SECRET: MOCK_CLIENT_SECRET
       COOKIE_KEY_1: MOCK_KEY_1
